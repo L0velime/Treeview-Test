@@ -21,6 +21,15 @@ namespace Treeview_Test
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
+            if (e.Node.Tag != null)
+            {
+                string fileImage = e.Node.Tag.ToString();
+                pictureBox1.Load(fileImage);
+            }
+            else
+                pictureBox1.Image = null;
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,7 +38,9 @@ namespace Treeview_Test
             if (folderBrowser.ShowDialog() == DialogResult.OK)
             {
                 ListDirectory(this.treeView1, folderBrowser.SelectedPath);
+             
             }
+            
         }
 
         private void ListDirectory(TreeView treeView, string path)
@@ -37,6 +48,7 @@ namespace Treeview_Test
             treeView.Nodes.Clear();
             var rootDirectoryInfo = new DirectoryInfo(path);
             treeView.Nodes.Add(CreateDirectoryNode(rootDirectoryInfo));
+            
         }
         private static TreeNode CreateDirectoryNode(DirectoryInfo directoryInfo)
         {
@@ -52,7 +64,11 @@ namespace Treeview_Test
 
             foreach (var file in files)
             {
-                directoryNode.Nodes.Add(new TreeNode(file.Name));
+                
+                var newNode = new TreeNode(file.Name);
+                    newNode.Tag = file.FullName;
+                directoryNode.Nodes.Add(newNode);
+
             }
 
             return directoryNode;          
