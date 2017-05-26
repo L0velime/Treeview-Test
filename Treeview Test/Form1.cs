@@ -18,7 +18,6 @@ namespace Treeview_Test
             InitializeComponent();
         }
 
-
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
@@ -44,13 +43,29 @@ namespace Treeview_Test
             var directoryNode = new TreeNode(directoryInfo.Name);
             foreach (var directory in directoryInfo.GetDirectories())
                 directoryNode.Nodes.Add(CreateDirectoryNode(directory));
-            foreach (var file in directoryInfo.GetFiles())
+
+            string[] extensions = new[] { ".jpg", ".jpeg", ".png", ".bmp" };
+            FileInfo[] files =
+                directoryInfo.EnumerateFiles()
+                .Where(f => extensions.Contains(f.Extension.ToLower()))
+                .ToArray();
+
+            foreach (var file in files)
+            {
                 directoryNode.Nodes.Add(new TreeNode(file.Name));
-            return directoryNode;
-            //ss
-            //asaS
-        
-          
+            }
+
+            return directoryNode;          
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
