@@ -76,12 +76,20 @@ namespace Treeview_Test
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBox1.Checked)
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            else
+                pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+        
         }
     }
 

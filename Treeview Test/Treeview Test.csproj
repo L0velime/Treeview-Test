@@ -7,7 +7,7 @@
     <ProjectGuid>{1AB32682-6F19-4D95-A02F-0A228ECED178}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Treeview_Test</RootNamespace>
-    <AssemblyName>Treeview Test</AssemblyName>
+    <AssemblyName>Simple Image Viewer</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
