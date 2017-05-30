@@ -13,6 +13,8 @@ namespace Treeview_Test
 {
     public partial class Form1 : Form
     {
+        string fileImageName = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace Treeview_Test
             if (e.Node.Tag != null)
             {
                 string fileImage = e.Node.Tag.ToString();
+                fileImageName = e.Node.ToString();
                 pictureBox1.Load(fileImage);
             }
             else
@@ -89,6 +92,22 @@ namespace Treeview_Test
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (fileImageName != null)
+            {
+                string fileImageTrimmed = fileImageName.Remove(0, 10);
+                string[] remove = { ".jpg", ".jpeg", ".png", ".bmp" };
+                foreach (string ext in remove)
+                    if (fileImageTrimmed.EndsWith(ext))
+                    {
+                        fileImageTrimmed = fileImageTrimmed.Substring(0, fileImageTrimmed.LastIndexOf(ext));
+                        break; //only allow one match at most
+                    }
+
+                Clipboard.SetText(fileImageTrimmed);
+               
+            }
+            else
+                MessageBox.Show("No file selected");
         
         }
     }
