@@ -35,6 +35,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,6 +77,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.button2);
+            this.flowLayoutPanel1.Controls.Add(this.button3);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(184, 619);
@@ -89,7 +91,7 @@
             this.button1.Location = new System.Drawing.Point(993, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Browse";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -112,7 +114,7 @@
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(175, 610);
-            this.treeView1.TabIndex = 1;
+            this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // pictureBox1
@@ -124,6 +126,17 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // button3
+            // 
+            this.button3.AutoSize = true;
+            this.button3.Location = new System.Drawing.Point(801, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(94, 23);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Open in explorer";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -151,6 +164,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

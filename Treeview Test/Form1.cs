@@ -14,6 +14,7 @@ namespace Treeview_Test
     public partial class Form1 : Form
     {
         string fileImageName = null;
+        string fileImage = null;
 
         public Form1()
         {
@@ -25,7 +26,7 @@ namespace Treeview_Test
 
             if (e.Node.Tag != null)
             {
-                string fileImage = e.Node.Tag.ToString();
+                fileImage = e.Node.Tag.ToString();
                 fileImageName = e.Node.ToString();
                 pictureBox1.Load(fileImage);
             }
@@ -109,6 +110,20 @@ namespace Treeview_Test
             else
                 MessageBox.Show("No file selected");
         
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1 != null)
+            {
+             
+                if (File.Exists(pictureBox1.ImageLocation))
+                {
+                    string locateFile = "/select, \"" + pictureBox1.ImageLocation + "\"";
+                    System.Diagnostics.Process.Start("explorer.exe", locateFile);
+                }
+            }
+            
         }
     }
 
