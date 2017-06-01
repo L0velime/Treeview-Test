@@ -50,6 +50,7 @@ namespace Treeview_Test
         private void ListDirectory(TreeView treeView, string path)
         {
             treeView.Nodes.Clear();
+            treeView.Sort();
             var rootDirectoryInfo = new DirectoryInfo(path);
             treeView.Nodes.Add(CreateDirectoryNode(rootDirectoryInfo));
             
@@ -59,6 +60,7 @@ namespace Treeview_Test
             var directoryNode = new TreeNode(directoryInfo.Name);
             foreach (var directory in directoryInfo.GetDirectories())
                 directoryNode.Nodes.Add(CreateDirectoryNode(directory));
+            
 
             string[] extensions = new[] { ".jpg", ".jpeg", ".png", ".bmp" };
             FileInfo[] files =
@@ -125,6 +127,7 @@ namespace Treeview_Test
             }
             
         }
+       
     }
 
 }
